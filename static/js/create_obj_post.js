@@ -2,7 +2,6 @@ $(document).on('keydown', 'input[pattern]', function (e) {
     var input = $(this);
     var oldVal = input.val();
     var regex = new RegExp(input.attr('pattern'), 'g');
-
     setTimeout(function () {
         var newVal = input.val();
         if (!regex.test(newVal)) {
@@ -19,11 +18,19 @@ $(function () {
             success: function (data) {
                 if (data.res === 1) {
                     var cal_value = data.time
-                    var year, month, day, hour, min, sec
-                    [day, time] = cal_value.split("T");
-                    [year, month, day] = day.split("-");
-                    [hour, min, sec] = time.split(".")[0].split(":");
+
+                    var T_split = cal_value.split("T");
+                    var year_month_day = T_split[0]
+                    var hour_min_sec = T_split[1]
+                    var year = year_month_day.split("-")[0]
+                    var month = year_month_day.split("-")[1]
+                    var day = year_month_day.split("-")[2]
+                    var hour = hour_min_sec.split(":")[0]
+                    var min = hour_min_sec.split(":")[1]
+                    var sec = hour_min_sec.split(":")[2].split(".")[0]
+
                     var made_str = year + '-' + month + '-' + day + ' ' + hour + ':' + min + ':' + sec
+
                     $('#server_time').html(made_str)
                 }
             }
@@ -37,7 +44,6 @@ $(function () {
             $('#create_post_note').html('minimum: 1.00')
             return false
         }
-
         var get_fixed = Number(get_value).toFixed(2)
         if (isNaN(get_fixed)){
             $('#create_post_note').html('check your input, only digit and dot(.) is working')

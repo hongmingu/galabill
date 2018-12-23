@@ -6,10 +6,10 @@
     {% include 'others/favicon.html' %}
 
     {% load static from staticfiles %}
-    <script src="{% static 'js/navbar.js' %}"></script>
-    <script src="{% static 'js/a_selected.js' %}"></script>
+    {% include 'others/header_navbar.html' %}
 
-    <script src="{% static 'js/b_admin_member.js' %}"></script>
+
+    <script src="{% static 'js/b_admin_member.min.js' %}"></script>
 </head>
 <body class="light_background_color height_100">
 <!--navbar start-->

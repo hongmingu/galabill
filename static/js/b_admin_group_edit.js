@@ -72,7 +72,6 @@ $(function () {
             }
         });
     })
-
     $('#name_register').click(function (e) {
         e.preventDefault()
         $.ajax({

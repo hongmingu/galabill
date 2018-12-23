@@ -19,7 +19,6 @@ $(function () {
             }
         });
     });
-
     $('#span_change_photo').click(function (e) {
         e.preventDefault();
         $('#input_file').click()

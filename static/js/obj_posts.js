@@ -17,7 +17,6 @@ $(function () {
                     $('#post_list').append(appender)
                 })
 
-
                 if (data.end === null) {
                     $('#more_load').addClass('hidden')
                     $('#end_id').html('')

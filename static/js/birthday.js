@@ -16,7 +16,6 @@ $('#years, #months').on("change", function(){
 });
 
 
-
 function updateNumberOfDays(){
     $('#days').html('');
     month=$('#months').val();

@@ -16,7 +16,6 @@ $(function () {
         })
 
     })
-
     $("#modal_post_delete").on("shown.bs.modal", function () {
 
     }).on("hidden.bs.modal", function () {

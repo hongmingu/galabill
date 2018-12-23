@@ -13,7 +13,6 @@ $(function () {
     if($('#user_id').html()!==$('#chosen_user_id').html()){
         $('#follow_wrapper').removeClass('hidden')
     }
-
     $('#follow').click(function (e) {
         e.preventDefault()
         if ($('#user_id').html() === '') {

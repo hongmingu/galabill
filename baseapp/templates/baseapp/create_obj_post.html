@@ -6,15 +6,14 @@
     {% include 'others/favicon.html' %}
 
     {% load static from staticfiles %}
-    <script src="{% static 'js/navbar.js' %}"></script>
-    <script src="{% static 'js/a_selected.js' %}"></script>
-    <script src="{% static 'js/create_obj_post.js' %}"></script>
+    {% include 'others/header_navbar.html' %}
+
+    <script src="{% static 'js/create_obj_post.min.js' %}"></script>
 
 </head>
 <body class="light_background_color height_100">
 {% include 'baseapp/_navbar.html' %}
 
-{% include 'others/bootstrap_tester.html' %}
 <!--이거 제대로 작동 안 한다 확인해야 한다.-->
 {% if user.is_authenticated %}
     <div class="hidden" id="user_id">{{ user.username }}</div>

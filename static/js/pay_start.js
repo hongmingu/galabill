@@ -18,7 +18,6 @@ $(function () {
             'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, fullscreen=yes, width=768,' + height);
         return false;
     })
-
 })
 $(document).on('keydown', 'input[pattern]', function (e) {
     var input = $(this);

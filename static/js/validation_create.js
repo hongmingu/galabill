@@ -1,5 +1,4 @@
 var validate_base = (function validate_base() {
-
         var banned_username_list = ['galabill', 'robots.txt'];
         var banned_password_list = [
             'password', 'qwerty', 'superman', '123456', '1234567', '12345678', '123456789', '1234567890', '012345', '0123456',

@@ -1,9 +1,7 @@
 $(function () {
-
     $('#create_search_btn').click(function (e) {
         e.preventDefault()
         var keyword = $('#create_search_input').val()
-
         if (keyword.replace(/ /g, '') === '') {
             return false
         }

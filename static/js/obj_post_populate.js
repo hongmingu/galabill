@@ -8,7 +8,6 @@ var obj_post_populate = function obj_post_populate(id, obj_type) {
             },
             success: function (data) {
                 if (data.res === 1) {
-                    console.log(data)
                     var text = ''
                     if (data.output.text === null) {
 

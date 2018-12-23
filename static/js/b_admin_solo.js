@@ -8,7 +8,6 @@ $(function () {
             last_pk: $('#last_pk').html(),
         },
         success: function (data) {
-            console.log(data)
             if (data.res === 1) {
                 $.each(data.output, function (key, value) {
                     $('#obj_list').append('<div><span class="h4">' + value.name + '</span><span class="h5">' + value.desc + '</span></div><div>' + value.id + '</div><a href="/b/admin/solo/edit/' + value.id + '/"><div>link</div></a>')

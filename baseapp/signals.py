@@ -102,7 +102,7 @@ def deleted_group_follow(sender, instance, **kwargs):
         pass
 
 
-@receiver(post_delete, sender=NoticeFollow)  # 이걸 pre_delete로 해야하나?
+@receiver(post_delete, sender=NoticeFollow)
 def deleted_notice_follow(sender, instance, **kwargs):
     try:
         with transaction.atomic():

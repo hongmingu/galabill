@@ -8,16 +8,14 @@
     {% include 'others/header_metas.html' %}
 
     {% load static from staticfiles %}
-    <script src="{% static 'js/navbar.js' %}"></script>
-    <script src="{% static 'js/a_selected.js' %}"></script>
-    <script src="{% static 'js/rank.js' %}"></script>
+    {% include 'others/header_navbar.html' %}
+
+    <script src="{% static 'js/rank.min.js' %}"></script>
 
 
 </head>
 <body class="light_background_color height_100">
 {% include 'baseapp/_navbar.html' %}
-{% include 'others/bootstrap_tester.html' %}
-
 <div class="hidden" id="page_kind">home</div>
 
 {% if user.is_authenticated %}

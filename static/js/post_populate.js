@@ -101,7 +101,6 @@ var post_populate = function post_populate(id, obj_type) {
                                         $('#pop_like_count_' + id).html(current_count - 1)
                                     }
 
-
                                 }
                             }
                         })

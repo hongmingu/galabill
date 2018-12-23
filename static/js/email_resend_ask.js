@@ -1,5 +1,4 @@
 $(function () {
-
             $.ajax({
                 url:'/accounts/email_ask/',
                 type:'post',

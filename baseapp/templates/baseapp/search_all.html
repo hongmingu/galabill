@@ -6,12 +6,12 @@
     {% include 'others/favicon.html' %}
 
     {% load static from staticfiles %}
-    <script src="{% static 'js/navbar.js' %}"></script>
-    <script src="{% static 'js/a_selected.js' %}"></script>
-    <script src="{% static 'js/post_populate.js' %}"></script>
+    {% include 'others/header_navbar.html' %}
 
-    <script src="{% static 'js/date_differ.js' %}"></script>
-    <script src="{% static 'js/search_all.js' %}"></script>
+    <script src="{% static 'js/post_populate.min.js' %}"></script>
+
+    <script src="{% static 'js/date_differ.min.js' %}"></script>
+    <script src="{% static 'js/search_all.min.js' %}"></script>
 
 
 </head>

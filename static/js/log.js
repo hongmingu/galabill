@@ -22,7 +22,6 @@ $(function () {
                             '</div>'
 
                     }
-
                     var appender = '<div>' +
                         '<div><span class="log_gross">' + value.gross + '</span></div> ' +
                         _obj_id +

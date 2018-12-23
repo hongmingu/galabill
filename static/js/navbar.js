@@ -54,7 +54,6 @@ $(function () {
             });
         }
     }
-
     $(window).on('resize', function () {
         if ($(this).width() != width) {
             width = $(this).width();

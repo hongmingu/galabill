@@ -25,15 +25,14 @@
     <meta name="twitter:creator" content="@{{ post.user.userusername.username }}">
 
     {% load static from staticfiles %}
-    <script src="{% static 'js/navbar.js' %}"></script>
-    <script src="{% static 'js/a_selected.js' %}"></script>
-    <script src="{% static 'js/date_differ.js' %}"></script>
+    {% include 'others/header_navbar.html' %}
 
-    <script src="{% static 'js/post_populate.js' %}"></script>
+    <script src="{% static 'js/date_differ.min.js' %}"></script>
+
+    <script src="{% static 'js/post_populate.min.js' %}"></script>
 </head>
 <body class="light_background_color height_100">
 {% include 'baseapp/_navbar.html' %}
-{% include 'others/bootstrap_tester.html' %}
 <div class="hidden" id="page_kind">user</div>
 
 

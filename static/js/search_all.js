@@ -28,7 +28,6 @@ $(function () {
                             $('#content_user').append(appender)
                         })
                     }
-
                     //user set
 
                     if (data.solo_output.length === 0) {

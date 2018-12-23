@@ -12,7 +12,6 @@ $(function () {
                 if (data.res === 1) {
                     if (data.output.length === 0) {
                         $('#content_result').append('<div class="h4">end results</div>')
-
                     } else {
                         $.each(data.output, function (key, value) {
                             var member = '';

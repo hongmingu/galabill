@@ -25,7 +25,6 @@ $(function () {
                     }
                 } else {
                     alert('failed')
-
                 }
             }
         });

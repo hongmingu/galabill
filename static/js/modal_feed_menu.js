@@ -1,5 +1,4 @@
 $(function () {
-
 $("#modal_feed_menu").on("shown.bs.modal", function () {
         var clicked_post = $('#clicked_post_id').html()
         var scheme = window.location.protocol == "https:" ? "https" : "http";

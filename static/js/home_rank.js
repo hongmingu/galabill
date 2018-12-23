@@ -5,7 +5,6 @@ $(function () {
             day: $('#day').html(),
         },
         success: function (data) {
-            console.log(data)
             if (data.res === 1) {
                 $.each(data.all_output, function (key, value) {
                     var rank = '<div class="home_rank_wrapper" align="right"><span class="home_rank_' + (parseInt(key) + 1) + '">' + (parseInt(key) + 1) + '</span></div>'
