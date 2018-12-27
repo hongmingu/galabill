@@ -362,7 +362,6 @@ class GroupMainPhoto(models.Model):
             return "/media/default/default_photo_300.png"
 
 
-
 class SoloPhoto(models.Model):
     solo = models.ForeignKey(Solo, on_delete=models.CASCADE, null=True, blank=True)
     file_50 = models.ImageField(null=True, blank=True, default=None, upload_to=get_file_path_solo_celeb_photo_50)
@@ -413,8 +412,6 @@ class SoloMainPhoto(models.Model):
     def __str__(self):
         return "desc: %s" % self.description
 
-
-
     if settings.DEPLOY:
 
         def file_50_url(self):
@@ -436,6 +433,7 @@ class SoloMainPhoto(models.Model):
             if self.solo_photo:
                 return self.solo_photo.file_300.url
             return "/media/default/default_photo_300.png"
+
 
 class Member(models.Model):
     group = models.ForeignKey(Group, on_delete=models.CASCADE, null=True, blank=True)
