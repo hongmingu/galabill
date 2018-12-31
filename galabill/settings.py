@@ -61,6 +61,7 @@ if settings_json['debug']['mode'] == 'dev':
     # For PAYPAL PDT------------------------------------------------------------------------
     # PAYPAL_IDENTITY_TOKEN = '_RTtiajy1U_SW7WO_iPEzawd_vsej2iO5GSSxfBs2LmjjDwEHUApVfCCzmy'
     # installed_apps : 'paypal.standard.ipn',
+    BUSINESS = "ghdalsrn2sell@gmail.com"
 
     SITE_ID = 1
 
@@ -232,6 +233,7 @@ elif settings_json['debug']['mode'] == 'deploy':
     # For PAYPAL PDT------------------------------------------------------------------------
     # PAYPAL_IDENTITY_TOKEN = '_RTtiajy1U_SW7WO_iPEzawd_vsej2iO5GSSxfBs2LmjjDwEHUApVfCCzmy'
     # installed_apps : 'paypal.standard.ipn',
+    BUSINESS = "idigmh397@gmail.com"
 
     SITE_ID = 1
 
@@ -397,6 +399,7 @@ elif settings_json['debug']['mode'] == 'deploy_admin':
     # For PAYPAL PDT------------------------------------------------------------------------
     # PAYPAL_IDENTITY_TOKEN = '_RTtiajy1U_SW7WO_iPEzawd_vsej2iO5GSSxfBs2LmjjDwEHUApVfCCzmy'
     # installed_apps : 'paypal.standard.ipn',
+    BUSINESS = "idigmh397@gmail.com"
 
     SITE_ID = 1
 

@@ -73,7 +73,7 @@ def pay_charge(request):
             q = request.GET.get('q', None)
             if not q.isdigit():
                 return render(request, '404.html')
-            business = 'ghdalsrn2sell@gmail.com'
+            business = settings.BUSINESS
             # What you want the button to do.
             user_id = request.user.username # 이거 데이터베이스에서 중복값 없도록 해야 한다. 여기 수정해야함.
             paypal_dict = {
@@ -85,8 +85,6 @@ def pay_charge(request):
                 "cancel_return": request.build_absolute_uri(reverse('baseapp:pay_cancel_return')),
                 "custom": request.user.username,  # Custom command to correlate to some function later (optional)
             }
-            print('reverse paypal-ipn: ' + reverse('paypal-ipn'))
-            print('send uuid: '+ user_id)
             # Create the instance.
             form = PayPalPaymentsForm(initial=paypal_dict)
             context = {"form": form, 'charge': q}
