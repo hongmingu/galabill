@@ -228,7 +228,7 @@ elif settings_json['debug']['mode'] == 'deploy':
     ]
 
     # For Sandbox account-------------------------------------------------------------------
-    PAYPAL_TEST = True
+    PAYPAL_TEST = False
     # For PAYPAL PDT------------------------------------------------------------------------
     # PAYPAL_IDENTITY_TOKEN = '_RTtiajy1U_SW7WO_iPEzawd_vsej2iO5GSSxfBs2LmjjDwEHUApVfCCzmy'
     # installed_apps : 'paypal.standard.ipn',
@@ -393,7 +393,7 @@ elif settings_json['debug']['mode'] == 'deploy_admin':
     INTERNAL_IPS = ('127.0.0.1',)
 
     # For Sandbox account-------------------------------------------------------------------
-    PAYPAL_TEST = True
+    PAYPAL_TEST = False
     # For PAYPAL PDT------------------------------------------------------------------------
     # PAYPAL_IDENTITY_TOKEN = '_RTtiajy1U_SW7WO_iPEzawd_vsej2iO5GSSxfBs2LmjjDwEHUApVfCCzmy'
     # installed_apps : 'paypal.standard.ipn',
