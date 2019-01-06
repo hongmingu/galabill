@@ -292,8 +292,8 @@ class SoloMainName(models.Model):
 
 class GroupPhoto(models.Model):
     group = models.ForeignKey(Group, on_delete=models.CASCADE, null=True, blank=True)
-    file_50 = models.ImageField(null=True, blank=True, default=None, upload_to=get_file_path_group_celeb_photo_50)
-    file_300 = models.ImageField(null=True, blank=True, default=None, upload_to=get_file_path_group_celeb_photo_300)
+    file_50 = models.ImageField(null=True, blank=True, default=None, upload_to=get_file_path_group_celeb_photo_50, max_length=1000)
+    file_300 = models.ImageField(null=True, blank=True, default=None, upload_to=get_file_path_group_celeb_photo_300, max_length=1000)
     uuid = models.CharField(max_length=34, unique=True, blank=True, null=True, default=None)
 
     description = models.TextField(max_length=1000, null=True, blank=True, default=None)
@@ -364,8 +364,8 @@ class GroupMainPhoto(models.Model):
 
 class SoloPhoto(models.Model):
     solo = models.ForeignKey(Solo, on_delete=models.CASCADE, null=True, blank=True)
-    file_50 = models.ImageField(null=True, blank=True, default=None, upload_to=get_file_path_solo_celeb_photo_50)
-    file_300 = models.ImageField(null=True, blank=True, default=None, upload_to=get_file_path_solo_celeb_photo_300)
+    file_50 = models.ImageField(null=True, blank=True, default=None, upload_to=get_file_path_solo_celeb_photo_50, max_length=1000)
+    file_300 = models.ImageField(null=True, blank=True, default=None, upload_to=get_file_path_solo_celeb_photo_300, max_length=1000)
     uuid = models.CharField(max_length=34, unique=True, blank=True, null=True, default=None)
     main = models.BooleanField(default=False)
 
