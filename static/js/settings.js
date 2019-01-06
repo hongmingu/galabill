@@ -152,7 +152,6 @@ $(function () {
                 username: val_username,
             },
             success: function (data) {
-                console.log(data)
                 if (data.res === 1) {
                     $('#span_current_username').html(data.username);
                     $('#p_username_desc').html(data.message);
