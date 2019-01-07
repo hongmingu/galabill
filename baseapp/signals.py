@@ -118,7 +118,6 @@ def created_post_comment(sender, instance, created, **kwargs):
     if created:
         try:
             with transaction.atomic():
-                # 여기뭐임 왜 카운트 안셈
                 if not instance.user == instance.post.user:
                     notice = Notice.objects.create(user=instance.post.user, kind=POST_COMMENT, uuid=uuid.uuid4().hex)
                     notice_post_comment = NoticePostComment.objects.create(notice=notice, post_comment=instance)
