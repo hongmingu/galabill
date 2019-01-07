@@ -146,7 +146,6 @@ if settings_json['debug']['mode'] == 'dev':
         'authapp.backends.EmailOrUsernameAuthBackend',
         # 'django.contrib.auth.backends.ModelBackend',
     ]
-    '''
     #### Static settings
     STATIC_URL = '/static/'
     STATICFILES_DIRS = [
@@ -181,6 +180,7 @@ if settings_json['debug']['mode'] == 'dev':
     # Media Setting
     MEDIA_URL = "https://%s/media/" % AWS_S3_CUSTOM_DOMAIN
 
+    '''
     # -------------------------------------------------------------------
 
     # 이미 사용중인 이메일로 리센드 할 시의 문제
@@ -395,11 +395,11 @@ elif settings_json['debug']['mode'] == 'deploy_admin':
     INTERNAL_IPS = ('127.0.0.1',)
 
     # For Sandbox account-------------------------------------------------------------------
-    PAYPAL_TEST = False
+    PAYPAL_TEST = True
     # For PAYPAL PDT------------------------------------------------------------------------
     # PAYPAL_IDENTITY_TOKEN = '_RTtiajy1U_SW7WO_iPEzawd_vsej2iO5GSSxfBs2LmjjDwEHUApVfCCzmy'
     # installed_apps : 'paypal.standard.ipn',
-    BUSINESS = "idigmh397@gmail.com"
+    BUSINESS = "ghdalsrn2sell@gmail.com"
 
     SITE_ID = 1
 

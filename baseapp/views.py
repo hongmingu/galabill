@@ -78,7 +78,7 @@ def pay_charge(request):
             user_id = request.user.username # 이거 데이터베이스에서 중복값 없도록 해야 한다. 여기 수정해야함.
             paypal_dict = {
                 "business": business, # 판매자 계정 잘 써야 한다.
-                "amount": q,
+                "amount": int(q),
                 "item_name": "galaboard charge",
                 "notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
                 "return": request.build_absolute_uri(reverse('baseapp:pay_return')),
