@@ -145,9 +145,6 @@ class Group(models.Model):
         from django.urls import reverse
         return reverse('baseapp:group_posts', kwargs={'uuid': self.uuid})
 
-    class Meta:
-        unique_together = ('name', 'description',)
-
 
 class Solo(models.Model):
 
@@ -166,9 +163,6 @@ class Solo(models.Model):
     def get_absolute_url(self):
         from django.urls import reverse
         return reverse('baseapp:solo_posts', kwargs={'uuid': self.uuid})
-
-    class Meta:
-        unique_together = ('name', 'description',)
 
 
 class GroupDate(models.Model):
