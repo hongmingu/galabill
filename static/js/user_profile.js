@@ -47,7 +47,7 @@ $(function () {
                     '</div>' + _modifier +
                     '</div>'
                 var jq_appender = $(appender)
-                jq_appender.find('.user_profile_post_delete').on('click', function (e) {
+                jq_appender.find('.pro_delete').on('click', function (e) {
                     e.preventDefault()
                     $('#delete_post_id').html(value.id)
                     $('#modal_post_delete').modal('show')
