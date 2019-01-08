@@ -889,7 +889,8 @@ def re_create_search(request):
 
                 if solo_end == 'false':
                     if solo_id == '':
-                        qs1 = Solo.objects.filter(soloname__name__icontains=keyword).order_by(Length('name').asc())[:10]
+                        qs1 = Solo.objects.filter(
+                            soloname__name__icontains=keyword).distinct().order_by(Length('name').asc())[:10]
                     else:
                         solo = None
                         try:
@@ -897,14 +898,15 @@ def re_create_search(request):
                         except Exception as e:
                             return JsonResponse({'res': 0})
                         qs1 = Solo.objects.filter(soloname__name__icontains=keyword,
-                                                  pk__gt=solo.pk).order_by(Length('name').asc())[:10]
+                                                  pk__gt=solo.pk).distinct().order_by(Length('name').asc())[:10]
 
                 elif solo_end == 'true':
                     qs1 = Solo.objects.none()
 
                 if group_end == 'false':
                     if group_id == '':
-                        qs2 = Group.objects.filter(groupname__name__icontains=keyword).order_by(Length('name').asc())[:10]
+                        qs2 = Group.objects.filter(
+                            groupname__name__icontains=keyword).distinct().order_by(Length('name').asc())[:10]
                     else:
                         group = None
                         try:
@@ -912,7 +914,7 @@ def re_create_search(request):
                         except Exception as e:
                             return JsonResponse({'res': 0})
                         qs2 = Group.objects.filter(groupname__name__icontains=keyword,
-                                                   pk__gt=group.pk).order_by(Length('name').asc())[:10]
+                                                   pk__gt=group.pk).distinct().order_by(Length('name').asc())[:10]
 
                 elif group_end == 'true':
                     qs2 = Group.objects.none()
@@ -2197,7 +2199,7 @@ def re_search_all(request):
 
             obj_step = 10
             solos = Solo.objects.filter(
-                soloname__name__icontains=search_word).order_by(Length('name').asc(), 'pk')[:obj_step]
+                soloname__name__icontains=search_word).distinct().order_by(Length('name').asc(), 'pk')[:obj_step]
             solo_output = []
 
             for item in solos:
@@ -2219,7 +2221,7 @@ def re_search_all(request):
                 solo_output.append(sub_output)
 
             groups = Group.objects.filter(
-                groupname__name__icontains=search_word).order_by(Length('name').asc(), 'pk')[:obj_step]
+                groupname__name__icontains=search_word).distinct().order_by(Length('name').asc(), 'pk')[:obj_step]
             group_output = []
 
             for item in groups:
@@ -2276,8 +2278,8 @@ def re_search_user(request):
             step = 20
             if end_id == '':
                 users = User.objects.filter(Q(userusername__username__icontains=search_word)
-                                            | Q(usertextname__name__icontains=search_word)).order_by(
-                    '-userusername__created').distinct()[:step]
+                                            | Q(usertextname__name__icontains=search_word)).distinct().order_by(
+                    '-userusername__created')[:step]
             else:
                 end_user = None
                 try:
@@ -2288,8 +2290,8 @@ def re_search_user(request):
 
                 users = User.objects.filter((Q(userusername__username__icontains=search_word)
                                             | Q(usertextname__name__icontains=search_word))
-                                            & Q(pk__lt=end_user.pk)).order_by(
-                    '-userusername__created').distinct()[:step]
+                                            & Q(pk__lt=end_user.pk)).distinct().order_by(
+                    '-userusername__created')[:step]
             output = []
             count = 0
             end = None
@@ -2329,7 +2331,7 @@ def re_search_solo(request):
             step = 10
 
             objs = Solo.objects.filter(Q(soloname__name__icontains=search_word)
-                                       | Q(description__icontains=search_word)).order_by(
+                                       | Q(description__icontains=search_word)).distinct().order_by(
                 Length('name').asc(), 'pk')[order:order+step]
             end = 'false'
             if objs.count() < step:
@@ -2371,7 +2373,7 @@ def re_search_group(request):
             step = 10
 
             objs = Group.objects.filter(Q(groupname__name__icontains=search_word)
-                                       | Q(description__icontains=search_word)).order_by(
+                                       | Q(description__icontains=search_word)).distinct().order_by(
                 Length('name').asc(), 'pk')[order:order+step]
             end = 'false'
             if objs.count() < step:
@@ -2417,8 +2419,8 @@ def re_search_post(request):
                                             | Q(posttext__text__icontains=search_word)
                                             | Q(solopost__solo__soloname__name__icontains=search_word)
                                             | Q(grouppost__group__groupname__name__icontains=search_word)
-                                            | Q(user__usertextname__name__icontains=search_word)).order_by(
-                    '-created').distinct()[:step]
+                                            | Q(user__usertextname__name__icontains=search_word)).distinct().order_by(
+                    '-created')[:step]
             else:
                 end_post = None
                 try:
@@ -2430,7 +2432,7 @@ def re_search_post(request):
                 posts = Post.objects.filter(((Q(user__userusername__username__icontains=search_word)
                                             | Q(posttext__text__icontains=search_word)
                                             | Q(user__usertextname__name__icontains=search_word)))
-                                            & Q(pk__lt=end_post.pk)).order_by('-created').distinct()[:step]
+                                            & Q(pk__lt=end_post.pk)).distinct().order_by('-created')[:step]
 
             output = []
             count = 0
@@ -2461,7 +2463,7 @@ def re_note_all(request):
                 step = 30
                 notices = None
                 if end_id == '':
-                    notices = Notice.objects.filter(Q(user=request.user)).order_by('-created').distinct()[:step]
+                    notices = Notice.objects.filter(Q(user=request.user)).distinct().order_by('-created')[:step]
                 else:
                     end_notice = None
                     try:
@@ -2469,8 +2471,8 @@ def re_note_all(request):
                     except Exception as e:
                         print(e)
                         return JsonResponse({'res': 0})
-                    notices = Notice.objects.filter(Q(user=request.user) & Q(pk__lt=end_notice.pk)).order_by(
-                        '-created').distinct()[:step]
+                    notices = Notice.objects.filter(Q(user=request.user) & Q(pk__lt=end_notice.pk)).distinct().order_by(
+                        '-created')[:step]
 
                 output = []
                 count = 0
