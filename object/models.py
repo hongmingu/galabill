@@ -229,7 +229,7 @@ class SoloPost(models.Model):
 class GroupName(models.Model):
     group = models.ForeignKey(Group, on_delete=models.CASCADE, null=True, blank=True)
 
-    name = models.TextField(max_length=1000, null=True, blank=True, default=None)
+    name = models.CharField(max_length=255, blank=True, null=True, default=None)
 
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -258,7 +258,7 @@ class GroupMainName(models.Model):
 class SoloName(models.Model):
     solo = models.ForeignKey(Solo, on_delete=models.CASCADE, null=True, blank=True)
 
-    name = models.TextField(max_length=1000, null=True, blank=True, default=None)
+    name = models.CharField(max_length=255, blank=True, null=True, default=None)
 
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
