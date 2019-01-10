@@ -271,7 +271,6 @@ elif settings_json['debug']['mode'] == 'deploy':
     # Database
     # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-
     DATABASES = {
         'default': {
             'ENGINE': settings_json['database']['default']['engine'],
