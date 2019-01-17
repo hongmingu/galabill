@@ -1058,6 +1058,7 @@ def re_create_group_post_complete(request):
                         group_date.save()
 
                         pay_log = PayLog.objects.create(post=post,
+                                                        kind='post_group',
                                                         gross=gross,
                                                         uuid=uuid.uuid4().hex,
                                                         wallet=wallet,
@@ -1138,6 +1139,7 @@ def re_create_solo_post_complete(request):
                         solo_date.save()
                         solo_post = SoloPost.objects.create(post=post, solo=solo, solo_date=solo_date)
                         pay_log = PayLog.objects.create(post=post,
+                                                        kind='post_solo',
                                                         gross=gross,
                                                         uuid=uuid.uuid4().hex,
                                                         wallet=wallet,

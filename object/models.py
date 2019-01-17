@@ -462,6 +462,8 @@ class Wallet(models.Model):
 class ChargeLog(models.Model):
     wallet = models.ForeignKey(Wallet, on_delete=models.SET_NULL, null=True, blank=True)
 
+    kind = models.CharField(max_length=255, blank=True, null=True, default=None)
+
     transaction_id = models.CharField(max_length=255, blank=True, null=True, default=None)
     user_id = models.CharField(max_length=34, blank=True, null=True, default=None)
     username = models.CharField(max_length=34, blank=True, null=True, default=None)
@@ -482,6 +484,9 @@ class ChargeLog(models.Model):
 
 class PayLog(models.Model):
     wallet = models.ForeignKey(Wallet, on_delete=models.SET_NULL, null=True, blank=True)
+
+    kind = models.CharField(max_length=255, blank=True, null=True, default=None)
+
     post = models.ForeignKey(Post, on_delete=models.SET_NULL, null=True, blank=True)
 
     post_uuid = models.CharField(max_length=34, blank=True, null=True, default=None)
