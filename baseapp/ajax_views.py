@@ -1356,8 +1356,9 @@ def re_post_populate(request):
                 comment_output.append(sub_output)
 
             like = 'false'
-            if PostLike.objects.filter(post=post, user=request.user).exists():
-                like = 'true'
+            if request.user.is_authenticated:
+                if PostLike.objects.filter(post=post, user=request.user).exists():
+                    like = 'true'
 
             output = {
                 'user_id': post.user.username,
