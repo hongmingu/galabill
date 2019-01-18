@@ -302,6 +302,7 @@ def ipn_signal(sender, **kwargs):
                     charge_log.gross = Decimal(ipn_obj.payment_gross)
                     charge_log.username = user.userusername.username
                     charge_log.kind = 'paypal'
+                    charge_log.uuid = uuid.uuid4().hex
                     charge_log.user_id = user.username
                     charge_log.save()
         except Exception as e:
