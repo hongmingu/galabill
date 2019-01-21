@@ -234,7 +234,7 @@ def group_profile(request, uuid):
         else:
             group = None
             try:
-                group = Solo.objects.get(uuid=uuid)
+                group = Group.objects.get(uuid=uuid)
             except Exception as e:
                 return render(request, '404.html')
             if group is not None:
@@ -344,7 +344,7 @@ def solo_home(request):
 
 
         d = request.GET.get('d', None)
-        print(request.get_full_path())
+        # print(request.get_full_path())
         if d is None:
             if not request.get_full_path() == '/solo/':
                 return redirect(reverse('baseapp:solo_home'))
@@ -416,7 +416,7 @@ def group_home(request):
 
 
         d = request.GET.get('d', None)
-        print(request.get_full_path())
+        # print(request.get_full_path())
         if d is None:
             if not request.get_full_path() == '/group/':
                 return redirect(reverse('baseapp:group_home'))
