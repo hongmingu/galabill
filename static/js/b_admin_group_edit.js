@@ -90,6 +90,37 @@ $(function () {
             }
         });
     })
+
+    $('#member_register').click(function (e) {
+        e.preventDefault()
+        $.ajax({
+            url: '/re/member/register/',
+            type: 'post',
+            dataType: 'json',
+            cache: false,
+            data: {
+                group_id: $('#id').html(),
+                solo_id: $('#member_register_input').val(),
+            },
+            success: function (data) {
+                if (data.res === 1) {
+                    if (data.result === 'delete') {
+                        alert('deleted')
+                        location.reload()
+
+                    } else if (data.result === 'create') {
+                        alert('created')
+                        location.reload()
+
+                    } else {
+                        alert('res was 1 but failed')
+                    }
+                } else {
+                    alert('failed')
+                }
+            }
+        });
+    })
     $.ajax({
         url: '/re/b/admin/group/edit/',
         type: 'post',
@@ -112,7 +143,10 @@ $(function () {
                 })
 
                 $.each(data.member_solo_output, function (key, value) {
-                    $('#member_list').append('<div class="h4">' + value.name + '</div><div class="h5">' + value.id + '</div>')
+                    $('#member_list').append('<a href="/b/admin/solo/edit/' + value.id + '/"><div>' +
+                            '<div><span class="h4">' + value.name + '</span><span class="h5">' + value.desc + '</span></div>' +
+                            '<div>' + value.id + '</div>' +
+                            '</div></a>')
                 })
             }
         }

@@ -256,6 +256,7 @@ def re_b_admin_group_edit(request):
                     sub_output = {
                         'name': member_solo.solo.name,
                         'id': member_solo.solo.uuid,
+                        'desc': member_solo.solo.description
                     }
                     member_solo_output.append(sub_output)
                 return JsonResponse({'res': 1,
@@ -286,14 +287,8 @@ def re_b_admin_group_edit_main_name(request):
                     return JsonResponse({'res': 0})
 
                 group_main_name = group.groupmainname
-                group_name = None
-                try:
-                    group_name = GroupName.objects.get(name=main_name, group=group)
-                except Exception as e:
-                    pass
-                if group_name is None:
-                    group_name = GroupName.objects.create(name=main_name, group=group)
 
+                group_name, created = GroupName.objects.get_or_create(name=main_name, group=group)
                 group_main_name.group_name = group_name
                 group_main_name.save()
 
@@ -402,11 +397,18 @@ def re_b_admin_group_upload_photo(request):
                                 '%s.%s' % (os.path.splitext(suf.name)[0], FILE_EXTENSION),
                                 suf, save=True)
 
+                            if not group.groupmainphoto.group_photo:
+                                group_main_photo = group.groupmainphoto
+                                group_main_photo.uuid = group_photo.uuid
+                                group_main_photo.group_photo = group_photo
+                                group_main_photo.save()
+
                             return JsonResponse({'res': 1, 'url': group_photo.file_300_url()})
                     except Exception:
                         return JsonResponse({'res': 0, 'message': texts.UNEXPECTED_ERROR})
 
             return JsonResponse({'res': 0, 'message': texts.UNEXPECTED_ERROR})
+
 
 @ensure_csrf_cookie
 def re_b_admin_group_edit_main_photo_register(request):
@@ -599,6 +601,7 @@ def re_b_admin_solo_edit(request):
                     sub_output = {
                         'name': member_group.group.name,
                         'id': member_group.group.uuid,
+                        'desc': member_group.group.description
                     }
                     member_group_output.append(sub_output)
                 return JsonResponse({'res': 1,
@@ -629,14 +632,8 @@ def re_b_admin_solo_edit_main_name(request):
                     return JsonResponse({'res': 0})
 
                 solo_main_name = solo.solomainname
-                solo_name = None
-                try:
-                    solo_name = Solo.objects.get(name=main_name, solo=solo)
-                except Exception as e:
-                    pass
-                if solo_name is None:
-                    solo_name = SoloName.objects.create(name=main_name, solo=solo)
 
+                solo_name, created = SoloName.objects.get_or_create(name=main_name, solo=solo)
                 solo_main_name.solo_name = solo_name
                 solo_main_name.save()
 
@@ -744,6 +741,12 @@ def re_b_admin_solo_upload_photo(request):
                             solo_photo.file_50.save(
                                 '%s.%s' % (os.path.splitext(suf.name)[0], FILE_EXTENSION),
                                 suf, save=True)
+
+                            if not solo.solomainphoto.solo_photo:
+                                solo_main_photo = solo.solomainphoto
+                                solo_main_photo.uuid = solo_photo.uuid
+                                solo_main_photo.solo_photo = solo_photo
+                                solo_main_photo.save()
 
                             return JsonResponse({'res': 1, 'url': solo_photo.file_300_url()})
                     except Exception:

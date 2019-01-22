@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth.backends import ModelBackend
-from django.conf import settings
 from .models import UserUsername, UserPrimaryEmail
 
 # Create your models here.

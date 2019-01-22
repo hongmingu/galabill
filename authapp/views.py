@@ -336,7 +336,6 @@ def main_create_log_in(request):
                                                                  UserCreateForm())
 
             if form.is_valid():
-
                 username = form.cleaned_data['username']
                 password = form.cleaned_data['password']
                 user = authenticate(username=username, password=password)

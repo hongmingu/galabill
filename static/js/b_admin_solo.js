@@ -10,7 +10,10 @@ $(function () {
         success: function (data) {
             if (data.res === 1) {
                 $.each(data.output, function (key, value) {
-                    $('#obj_list').append('<div><span class="h4">' + value.name + '</span><span class="h5">' + value.desc + '</span></div><div>' + value.id + '</div><a href="/b/admin/solo/edit/' + value.id + '/"><div>link</div></a>')
+                    $('#obj_list').append('<a href="/b/admin/solo/edit/' + value.id + '/"><div>' +
+                        '<div><span class="h4">' + value.name + '</span><span class="h5">' + value.desc + '</span></div>' +
+                        '<div>' + value.id + '</div>' +
+                        '</div></a>')
                 })
                 $('#last_pk').html(data.last_pk)
             }
@@ -30,7 +33,10 @@ $(function () {
                 console.log(data)
                 if (data.res === 1) {
                     $.each(data.output, function (key, value) {
-                        $('#obj_list').append('<div><span class="h4">' + value.name + '</span><span class="h5">' + value.desc + '</span></div><div>' + value.id + '</div><a href="/b/admin/solo/edit/' + value.id + '/"><div>link</div></a>')
+                        $('#obj_list').append('<a href="/b/admin/solo/edit/' + value.id + '/"><div>' +
+                            '<div><span class="h4">' + value.name + '</span><span class="h5">' + value.desc + '</span></div>' +
+                            '<div>' + value.id + '</div>' +
+                            '</div></a>')
                     })
                     $('#last_pk').html(data.last_pk)
                 }

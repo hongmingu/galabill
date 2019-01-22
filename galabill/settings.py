@@ -143,8 +143,9 @@ if settings_json['debug']['mode'] == 'dev':
     # https://docs.djangoproject.com/en/2.0/howto/static-files/
     # Authentication Backend
     AUTHENTICATION_BACKENDS = [
-        'authapp.backends.EmailOrUsernameAuthBackend',
-        # 'django.contrib.auth.backends.ModelBackend',
+        # 'authapp.backends.EmailOrUsernameAuthBackend',
+        'django.contrib.auth.backends.ModelBackend',
+
     ]
     #### Static settings
     STATIC_URL = '/static/'

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Demo</title>
+    <title>galabill admin</title>
     {% include 'others/header_static.html' %}
 
     {% load static from staticfiles %}
@@ -27,9 +27,11 @@
     <div class="row">
         <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
             <div class="row">
-                <a href="{% url 'baseapp:b_admin_group' %}"><div>group</div></a>
-                <a href="{% url 'baseapp:b_admin_solo' %}"><div>solo</div></a>
-                <a href="{% url 'baseapp:b_admin_member' %}"><div>member</div></a>
+                <a href="{% url 'baseapp:b_admin_group' %}"><div class="h3">GroupList</div></a>
+                <br>
+                <a href="{% url 'baseapp:b_admin_solo' %}"><div class="h3">SoloList</div></a>
+                <br>
+                <a href="{% url 'baseapp:b_admin_member' %}"><div class="h3">MemberRegister</div></a>
 
             </div>
         </div>
